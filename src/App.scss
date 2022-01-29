@@ -1,0 +1,40 @@
+@import "./styles/includes/variables";
+@import "./styles/includes/mixins";
+
+/* 
+general styles
+*/
+
+body {
+  font-family: $font-default;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mq(sm) {
+    max-width: 540px;
+  }
+  @include mq(md) {
+    max-width: 720px;
+  }
+  @include mq(lg) {
+    max-width: 1140px;
+  }
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
