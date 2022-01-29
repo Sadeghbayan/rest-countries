@@ -1,0 +1,25 @@
+//font-family
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&display=swap");
+
+$font-default: "Nunito", sans-serif;
+$font-weight-light: 300;
+$font-weight-mid: 600;
+$font-weight-bold: 800;
+
+$font-size-home: 14px;
+$font-size-detail: 16px;
+$font-size-default: $font-size-home;
+
+// Colors
+$white: white;
+
+// breakpoints
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 375px,
+  sm: 576px,
+  md: 728px,
+  lg: 992px,
+  xl: 1440px,
+) !default;
