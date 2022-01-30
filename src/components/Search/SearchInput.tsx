@@ -29,7 +29,7 @@ const SearchInput: React.FC<ISearch> = ({
     <div className={styles["search-wrapper"]}>
       <Search />
       <input
-        className="search-box"
+        className={styles["search-box"]}
         type="text"
         aria-label="Search"
         onChange={(e) => setQuery(e.target.value)}
