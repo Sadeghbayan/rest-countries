@@ -1,8 +1,14 @@
 import React from "react";
 import "./App.scss";
-
+import Header from "./components/Header/Header";
 function App() {
-  return <div className="App">Hello</div>;
+  const toggleTheme = () => {};
+
+  return (
+    <div className="App">
+      <Header title="Where in the world ?" toggleTheme={toggleTheme} />
+    </div>
+  );
 }
 
 export default App;
