@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "CountryList.module.scss";
 
-const CountryList: React.FC = () => {
+interface ICountries {
+  countries: Country[];
+}
+
+const CountryList: React.FC<ICountries> = ({ countries }) => {
   return <div>CountryList</div>;
 };
 
