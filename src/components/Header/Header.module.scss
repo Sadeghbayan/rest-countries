@@ -2,5 +2,21 @@
 
 .header {
   display: flex;
-  background: var(--dark-blue);
+  background: var(--color-background);
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      color: var(--color-text);
+      font-size: $font-size-heading;
+    }
+    .switch-theme {
+      background: none;
+      border: medium none;
+      color: var(--color-text);
+      cursor: pointer;
+      font-size: $font-size-element;
+      font-weight: $font-weight-light;
+    }
+  }
 }
