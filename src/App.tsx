@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
+import SearchInput from "./components/Search/SearchInput";
 
 type ITheme = "light" | "dark";
 
@@ -19,8 +20,14 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <Header title="Where in the world ?" toggleTheme={toggleTheme} />
+      <div className="container">
+        <SearchInput
+          placeholder="Search for a country..."
+          handleChange={(e) => console.log(e)}
+        />
+      </div>
     </div>
   );
 }
