@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "react-feather";
 import styles from "./SearchInput.module.scss";
 
@@ -14,6 +14,17 @@ const SearchInput: React.FC<ISearch> = ({
   handleChange,
 }) => {
   const [query, setQuery] = useState(value || "");
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      handleChange(query);
+    }, 300);
+
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [query, handleChange]);
+
   return (
     <div className={styles["search-wrapper"]}>
       <Search />
