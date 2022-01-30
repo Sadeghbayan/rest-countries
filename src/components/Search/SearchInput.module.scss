@@ -16,7 +16,7 @@
     font-family: $font-default;
     font-weight: $font-weight-mid;
     box-shadow: $box-shadow-elements;
-    border-radius: 4px;
+    border-radius: $border-radius-default;
     background-color: var(--color-element);
     color: var(--color-text);
     &:focus {
@@ -28,6 +28,6 @@
     position: absolute;
     margin: 0 $default-space * 2;
     color: var(--color-text);
-    opacity: $default-opacty;
+    opacity: $default-opacity;
   }
 }
