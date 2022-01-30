@@ -23,10 +23,12 @@ function App() {
     <div className="app">
       <Header title="Where in the world ?" toggleTheme={toggleTheme} />
       <div className="container">
-        <SearchInput
-          placeholder="Search for a country..."
-          handleChange={(e) => console.log(e)}
-        />
+        <main>
+          <SearchInput
+            placeholder="Search for a country..."
+            handleChange={(e) => console.log(e)}
+          />
+        </main>
       </div>
     </div>
   );
