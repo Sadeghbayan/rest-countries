@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.scss";
+import Dropdown from "./components/Dropdown/Dropdown";
 import Header from "./components/Header/Header";
 import SearchInput from "./components/Search/SearchInput";
 
@@ -28,6 +29,7 @@ function App() {
             placeholder="Search for a country..."
             handleChange={(e) => console.log(e)}
           />
+          <Dropdown />
         </main>
       </div>
     </div>
