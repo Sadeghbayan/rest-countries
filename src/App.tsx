@@ -5,9 +5,12 @@ import Header from "./components/Header/Header";
 import SearchInput from "./components/Search/SearchInput";
 
 type ITheme = "light" | "dark";
+const regionOptions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 function App() {
   const [defaultTheme, setDefaultTheme] = useState<ITheme>("light");
+  const [filterByRegion, setFilterByRegion] = useState("");
+
   const toggleTheme = () => {
     if (defaultTheme === "dark") {
       setDefaultTheme("light");
@@ -29,7 +32,13 @@ function App() {
             placeholder="Search for a country..."
             handleChange={(e) => console.log(e)}
           />
-          <Dropdown />
+          <Dropdown
+            onChange={(e) => setFilterByRegion(e.target.value)}
+            placeholder="Filter by Region"
+            name="region"
+            value={filterByRegion}
+            options={regionOptions}
+          />
         </main>
       </div>
     </div>
