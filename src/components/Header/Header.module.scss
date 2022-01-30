@@ -17,6 +17,14 @@
       cursor: pointer;
       font-size: $font-size-element;
       font-weight: $font-weight-light;
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: $default-space;
+      }
+      svg {
+        width: 20px;
+      }
     }
   }
 }

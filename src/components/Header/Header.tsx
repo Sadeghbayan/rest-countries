@@ -1,4 +1,5 @@
 import React from "react";
+import { Moon } from "react-feather";
 import styles from "./Header.module.scss";
 
 interface IHeader {
@@ -18,6 +19,7 @@ const Header: React.FC<IHeader> = ({ title, toggleTheme }) => {
             className={styles["switch-theme"]}
             onClick={toggleTheme}
           >
+            <Moon fill="#fff" />
             <span>Dark mode</span>
           </button>
         </div>
