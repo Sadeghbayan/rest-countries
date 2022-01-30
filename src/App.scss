@@ -40,5 +40,26 @@ h3 {
 }
 
 .mb-1 {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+.app {
+  background-color: var(--color-background);
+  height: 100vh;
+}
+
+main {
+  margin-top: 40px;
 }
