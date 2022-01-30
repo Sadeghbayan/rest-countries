@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronDown } from "react-feather";
+import styles from "./Dropdown.module.scss";
 
 type IOptions = string[];
 
@@ -19,22 +20,14 @@ const Dropdown: React.FC<IDropDown> = ({
   value,
 }) => {
   return (
-    <label htmlFor={name} className="select-label">
+    <label htmlFor={name} className={styles["select-label"]}>
       <ChevronDown />
-      <select
-        id={name}
-        onChange={onChange}
-        name={name}
-        value={value}
-        className="select-element"
-      >
-        <option disabled hidden className="select-optin" value="">
+      <select id={name} onChange={onChange} name={name} value={value}>
+        <option disabled hidden value="">
           {placeholder}
         </option>
         {options.map((item) => (
-          <option key={item} className="select-option">
-            {item}
-          </option>
+          <option key={item}>{item}</option>
         ))}
       </select>
     </label>
