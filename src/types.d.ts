@@ -1,4 +1,17 @@
-type Country = {
+interface Currency {
+  code: string;
+  name: string;
+  symbol: string;
+}
+
+interface Languages {
+  iso639_1: string;
+  iso639_2: string;
+  name: string;
+  nativeName: string;
+}
+
+type ICountry = {
   flag: string;
   alpha3Code: string;
   name: string;
