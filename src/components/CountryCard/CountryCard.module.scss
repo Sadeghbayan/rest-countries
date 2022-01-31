@@ -7,7 +7,7 @@
   margin-bottom: $default-space * 6;
   cursor: pointer;
   .card-image {
-    height: 200px;
+    height: 190px;
     img {
       max-width: 100%;
       border-top-left-radius: $border-radius-default;
@@ -19,7 +19,7 @@
   }
   .card-info {
     background: var(--color-element);
-    padding: $default-space * 2 $default-space * 3 $default-space * 2.2;
+    padding: $default-space * 2 $default-space * 3 $default-space * 4.4;
     border-bottom-left-radius: $border-radius-default;
     border-bottom-right-radius: $border-radius-default;
     color: var(--color-text);
@@ -29,7 +29,8 @@
     }
     span {
       font-weight: $font-weight-mid;
-      margin-bottom: 15px;
+      margin-bottom: $default-space * 0.7;
+      display: inline-block;
     }
   }
 }
