@@ -1,0 +1,35 @@
+@import "../../styles/includes/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  margin-bottom: $default-space * 6;
+  cursor: pointer;
+  .card-image {
+    height: 200px;
+    img {
+      max-width: 100%;
+      border-top-left-radius: $border-radius-default;
+      border-top-right-radius: $border-radius-default;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .card-info {
+    background: var(--color-element);
+    padding: $default-space * 2 $default-space * 3 $default-space * 2.2;
+    border-bottom-left-radius: $border-radius-default;
+    border-bottom-right-radius: $border-radius-default;
+    color: var(--color-text);
+    h3 {
+      margin: $default-space * 0.5 0;
+      font-size: $font-size-heading;
+    }
+    span {
+      font-weight: $font-weight-mid;
+      margin-bottom: 15px;
+    }
+  }
+}
