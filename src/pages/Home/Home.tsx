@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import CountryList from "../../components/CountryList/CountryList";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import SearchInput from "../../components/Search/SearchInput";
 import Country from "../../utils/api";
+import styles from "./Home.module.scss";
 
 interface IState {
   countries: ICountry[];
@@ -12,16 +13,50 @@ interface IState {
 
 const regionOptions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
+const displayCountries = (
+  countries: ICountry[],
+  filterByRegion?: string,
+  query?: string
+) => {
+  if (!filterByRegion && !query) {
+    return countries;
+  }
+
+  const result = countries.filter((item) => {
+    if (filterByRegion && item.region === filterByRegion) {
+      if (!query) {
+        return true;
+      }
+      return item.name.toLowerCase().includes(query.toLowerCase());
+    }
+
+    if (query && !filterByRegion) {
+      return item.name.toLowerCase().includes(query.toLowerCase());
+    }
+
+    return false;
+  });
+
+  return result;
+};
+
 const Home: React.FC = () => {
   const [filterByRegion, setFilterByRegion] = useState("");
+  const [query, setQuery] = useState("");
   const [state, setState] = useState<IState>({
     countries: [],
     status: "loading",
     error: "",
   });
 
+  const { countries, status } = state;
+
+  const searchQuery = useCallback((value: string) => setQuery(value), []);
+
   const displaySomeCountries =
-    state.status === "complete" ? state.countries.slice(0, 8) : [];
+    filterByRegion || query
+      ? displayCountries(countries, filterByRegion, query)
+      : countries.slice(0, 8);
 
   const fetchCountries = async () => {
     const { data, error } = await Country.fetchAllCountries();
@@ -38,8 +73,6 @@ const Home: React.FC = () => {
         error: "There might be a problem",
       }));
     }
-
-    console.log(data, error);
   };
 
   useEffect(() => {
@@ -48,19 +81,22 @@ const Home: React.FC = () => {
 
   return (
     <div className="container">
-      <SearchInput
-        placeholder="Search for a country..."
-        handleChange={(e) => console.log(e)}
-      />
-      <Dropdown
-        onChange={(e) => setFilterByRegion(e.target.value)}
-        placeholder="Filter by Region"
-        name="region"
-        value={filterByRegion}
-        options={regionOptions}
-      />
+      <section className={styles["header-action"]}>
+        <SearchInput
+          placeholder="Search for a country..."
+          handleChange={searchQuery}
+        />
+        <Dropdown
+          onChange={(e) => setFilterByRegion(e.target.value)}
+          placeholder="Filter by Region"
+          name="region"
+          value={filterByRegion}
+          options={regionOptions}
+        />
+      </section>
+
       <section className="countries">
-        {state.status === "complete" && (
+        {status === "complete" && (
           <CountryList countries={displaySomeCountries} />
         )}
       </section>
