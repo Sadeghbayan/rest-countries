@@ -11,7 +11,7 @@ interface Languages {
   nativeName: string;
 }
 
-type ICountry = {
+interface ICountry {
   flag: string;
   alpha3Code: string;
   name: string;
@@ -24,4 +24,9 @@ type ICountry = {
   currencies: Currency[];
   languages: Languages[];
   borders: string[];
-};
+}
+
+interface IBorder {
+  alpha3Code: string;
+  name: string;
+}
