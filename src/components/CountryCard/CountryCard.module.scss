@@ -23,6 +23,7 @@
     border-bottom-left-radius: $border-radius-default;
     border-bottom-right-radius: $border-radius-default;
     color: var(--color-text);
+    box-shadow: $box-shadow-elements;
     h3 {
       margin: $default-space * 0.5 0;
       font-size: $font-size-heading;

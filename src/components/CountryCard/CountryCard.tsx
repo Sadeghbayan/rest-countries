@@ -1,14 +1,19 @@
 import React from "react";
 import styles from "./CountryCard.module.scss";
 import Img from "react-cool-img";
+import { useNavigate } from "react-router-dom";
 
 interface ICountryCard {
   country: ICountry;
 }
 
 const CountryCard: React.FC<ICountryCard> = ({ country }) => {
+  const navigate = useNavigate();
+
+  const goToCountry = () => navigate(`/${country.alpha3Code}`);
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={goToCountry}>
       <div className={styles["card-image"]}>
         <Img src={country.flag} alt={`Flag of ${country.name}`} />
       </div>
