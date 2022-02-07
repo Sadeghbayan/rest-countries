@@ -22,6 +22,28 @@ class Country {
       };
     }
   }
+
+  static async fetchCountryByCode(countryCode: string, params?: string) {
+    try {
+      const resp = await fetch(`${BASE_URL}/alpha/${countryCode}`, {
+        method: "GET",
+      });
+      if (!resp.ok) {
+        console.log("there might be a problem from server!");
+      }
+
+      const data = await resp.json();
+      return {
+        data,
+        error: "",
+      };
+    } catch (error) {
+      return {
+        data: "",
+        error: error,
+      };
+    }
+  }
 }
 
 export default Country;
