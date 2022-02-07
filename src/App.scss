@@ -11,6 +11,7 @@ body {
   line-height: $line-height-default;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 a {
@@ -27,6 +28,7 @@ h3 {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
+  box-sizing: border-box;
 
   @include mq(sm) {
     max-width: 540px;
@@ -35,7 +37,7 @@ h3 {
     max-width: 720px;
   }
   @include mq(lg) {
-    max-width: 1140px;
+    max-width: 1440px;
   }
 }
 
@@ -57,9 +59,14 @@ h3 {
 
 .app {
   background-color: var(--color-background);
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 }
 
 main {
   margin-top: 40px;
+}
+
+button {
+  font-family: $font-default;
 }

@@ -1,7 +1,11 @@
-@import "../../styles/includes/variables";
+@import "../../styles/import";
 
 .header-action {
   display: flex;
   justify-content: space-between;
   margin-bottom: $default-space * 5;
+  flex-direction: column;
+  @include mq(lg) {
+    flex-direction: row;
+  }
 }

@@ -1,4 +1,4 @@
-@import "../../styles/includes/variables";
+@import "../../styles/import";
 
 .search-wrapper {
   position: relative;
@@ -6,6 +6,10 @@
   height: 55px;
   display: flex;
   align-items: center;
+  margin-bottom: $default-space * 4;
+  @include mq(lg) {
+    margin-bottom: 0;
+  }
   .search-box {
     box-sizing: border-box;
     border: 0 solid #e5e7eb;

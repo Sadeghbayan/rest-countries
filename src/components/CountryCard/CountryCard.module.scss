@@ -1,11 +1,16 @@
-@import "../../styles/includes/variables";
+@import "../../styles/import";
 
 .card {
   display: flex;
   flex-direction: column;
-  width: 22%;
+  width: 80%;
   margin-bottom: $default-space * 6;
   cursor: pointer;
+
+  @include mq(lg) {
+    width: 22%;
+  }
+
   .card-image {
     height: 190px;
     img {

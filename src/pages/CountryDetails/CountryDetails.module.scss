@@ -1,0 +1,122 @@
+@import "../../styles/import";
+
+.country-wrapper {
+  font-size: $font-size-detail;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text);
+  flex-direction: column;
+  @include mq(lg) {
+    flex-direction: row;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+
+    @include mq(lg) {
+      flex-direction: row;
+    }
+  }
+}
+
+.country-image {
+  width: 100%;
+
+  @include mq(lg) {
+    width: 46%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.country-info {
+  width: 100%;
+  @include mq(lg) {
+    width: 40%;
+  }
+  .country-info-details {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include mq(lg) {
+      flex-direction: row;
+    }
+
+    ul {
+      flex-direction: column;
+      margin-bottom: $default-space * 4;
+
+      @include mq(lg) {
+        margin-bottom: 0;
+      }
+
+      li {
+        margin-bottom: $default-space;
+      }
+      span {
+        font-weight: $font-weight-mid;
+      }
+    }
+  }
+}
+
+nav {
+  margin-bottom: $default-space * 4;
+}
+
+.btn {
+  background: var(--color-element);
+  box-shadow: $box-shadow-elements;
+  border-radius: $border-radius-default;
+  color: var(--color-text);
+  border: medium none;
+  padding: $default-space $default-space * 3;
+  font-size: $font-size-detail;
+  display: flex;
+  align-items: center;
+  font-weight: $font-weight-mid;
+  cursor: pointer;
+
+  &.btn-small {
+    padding: $default-space $default-space * 2;
+  }
+
+  svg {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+.country-borders {
+  display: flex;
+  flex-direction: column;
+  @include mq(lg) {
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  span {
+    font-weight: $font-weight-mid;
+    flex: 1;
+    margin-bottom: $default-space;
+    @include mq(lg) {
+      margin-bottom: 0;
+    }
+  }
+  ul {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    li {
+      margin-bottom: $default-space;
+      margin-right: $default-space;
+    }
+  }
+}
