@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import Loader from "../../components/Loader/Loader";
 import CountryList from "../../components/CountryList/CountryList";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import SearchInput from "../../components/Search/SearchInput";
@@ -49,7 +50,7 @@ const Home: React.FC = () => {
     error: "",
   });
 
-  const { countries, status } = state;
+  const { countries, status, error } = state;
 
   const searchQuery = useCallback((value: string) => setQuery(value), []);
 
@@ -96,8 +97,15 @@ const Home: React.FC = () => {
       </section>
 
       <section className="countries">
-        {status === "complete" && (
-          <CountryList countries={displaySomeCountries} />
+        {status !== "complete" ? (
+          <div>
+            {error && <div>{error}</div>}
+            {status === "loading" && <Loader message="Finding countries..." />}
+          </div>
+        ) : (
+          <div>
+            <CountryList countries={displaySomeCountries} />
+          </div>
         )}
       </section>
     </div>

@@ -3,6 +3,7 @@ import Country from "../../utils/api";
 import { ChevronLeft } from "react-feather";
 import Img from "react-cool-img";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 interface ICountryInfo {
   label: string;
@@ -44,7 +45,14 @@ const CountryDetails: React.FC = () => {
     fetchCountryByCode(params.countryCode || "");
   }, [location.pathname]);
 
-  console.log(country, "iiii");
+  if (!country) {
+    return (
+      <div className="mt-8">
+        <Loader message="Loading country details" />
+      </div>
+    );
+  }
+
   const {
     flag,
     name,
