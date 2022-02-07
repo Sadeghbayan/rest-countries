@@ -1,0 +1,7 @@
+@import "../../styles/includes/variables";
+
+.header-action {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $default-space * 5;
+}
