@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Country from "../../utils/api";
-import { ChevronLeft } from "react-feather";
+import { ArrowLeft } from "react-feather";
 import Img from "react-cool-img";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import styles from "./CountryDetails.module.scss";
+import classnames from "classnames";
 
 interface ICountryInfo {
   label: string;
@@ -20,7 +22,6 @@ type CountryDetailInfo = Omit<ICountry, "borders"> & { borders?: IBorder[] };
 
 const CountryDetails: React.FC = () => {
   const params = useParams();
-  const location = useLocation();
   const navigate = useNavigate();
 
   const [country, setCountry] = useState<CountryDetailInfo>();
@@ -39,15 +40,12 @@ const CountryDetails: React.FC = () => {
     }
   };
   useEffect(() => {
-    // if (location.pathname) {
-    //   fetch(location.pathname.replace("/", ""));
-    // }
     fetchCountryByCode(params.countryCode || "");
-  }, [location.pathname]);
+  }, [params.countryCode]);
 
   if (!country) {
     return (
-      <div className="mt-8">
+      <div className="container">
         <Loader message="Loading country details" />
       </div>
     );
@@ -68,60 +66,63 @@ const CountryDetails: React.FC = () => {
   } = country || {};
 
   return (
-    <div className="">
-      <div className="">
-        <button className="" type="button" onClick={() => navigate(-1)}>
-          <ChevronLeft />
-          Go back
+    <div className="container">
+      <nav>
+        <button
+          className={classnames(styles.btn)}
+          type="button"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft />
+          Back
         </button>
-      </div>
-      <div className="">
-        <div className="">
+      </nav>
+      <div className={styles["country-wrapper"]}>
+        <div className={styles["country-image"]}>
           <Img src={flag} alt={`Flag of ${name}`} className="" />
         </div>
-        <div>
-          <section className="">
-            {/* <h2 className="text-3xl font-bold">{name}</h2> */}
-            <div className="">
-              <ul className="">
-                <CountryInfo label="Native name">{nativeName}</CountryInfo>
-                <CountryInfo label="Population">{population}</CountryInfo>
-                <CountryInfo label="Region">{region}</CountryInfo>
-                <CountryInfo label="Sub Region">{subregion}</CountryInfo>
-                <CountryInfo label="Capital">{capital}</CountryInfo>
-              </ul>
-              <ul className="">
-                <CountryInfo label="Top Level Domain">
-                  {topLevelDomain?.join(", ")}
-                </CountryInfo>
-                <CountryInfo label="Currencies">
-                  {currencies?.map((item) => item.name).join(", ")}
-                </CountryInfo>
-                <CountryInfo label="Languages">
-                  {languages?.map((item) => item.name).join(", ")}
-                </CountryInfo>
-              </ul>
-            </div>
-          </section>
-          <section className="">
-            <span className="">Border Countries:</span>
-            <ul className="">
-              {borders &&
-                borders.map((item) => (
+        <section className={styles["country-info"]}>
+          <h2>{name}</h2>
+          <div className={styles["country-info-details"]}>
+            <ul>
+              <CountryInfo label="Native name">{nativeName}</CountryInfo>
+              <CountryInfo label="Population">{population}</CountryInfo>
+              <CountryInfo label="Region">{region}</CountryInfo>
+              <CountryInfo label="Sub Region">{subregion}</CountryInfo>
+              <CountryInfo label="Capital">{capital}</CountryInfo>
+            </ul>
+            <ul>
+              <CountryInfo label="Top Level Domain">
+                {topLevelDomain?.join(", ")}
+              </CountryInfo>
+              <CountryInfo label="Currencies">
+                {currencies?.map((item) => item.name).join(", ")}
+              </CountryInfo>
+              <CountryInfo label="Languages">
+                {languages?.map((item) => item.name).join(", ")}
+              </CountryInfo>
+            </ul>
+          </div>
+          {borders && (
+            <section className={styles["country-borders"]}>
+              <span>Border Countries:</span>
+              <ul>
+                {borders.map((item) => (
                   <li key={item.alpha3Code}>
                     <button
                       type="button"
                       title={item.alpha3Code}
                       onClick={() => navigate(`/${item.alpha3Code}`)}
-                      className=""
+                      className={classnames(styles.btn, styles["btn-small"])}
                     >
                       {item.name}
                     </button>
                   </li>
                 ))}
-            </ul>
-          </section>
-        </div>
+              </ul>
+            </section>
+          )}
+        </section>
       </div>
     </div>
   );
