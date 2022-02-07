@@ -1,0 +1,24 @@
+@import "../../styles/includes/variables";
+
+.loader {
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.loader-animate {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin-right: $default-space * 0.5;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
