@@ -1,3 +1,22 @@
+## Country information fetching
+
+A simple React.js application for fetching Country data.
+
+## Instructions for the demo
+
+- I decided to build the project with React and Typescript.
+- I used Create React App to set up the project and built on the structure provided by it
+- The workflow should contain 4 steps:
+  1. Simple Header section that has title which is clickable and will navigate user to homepage and dark mode button which handles dark mode functionlities.
+  2. Search box and Region filter which resulta are not limited to 8.
+  3. List of 8 countries.
+  4. Once user clicks on each country card it should be navigated to country details which display country details and borders.
+- Local storage is used in order to handle the dark mode once page is being refreshed.
+- Debouncing is used for search box to prevent unnecessary function call.
+- Countries code are gathered in an array and Borders should be called with `promise.all()`
+- I created a helper class for Api calls and reused it in different component to collect needed data.
+- I used native `fetch()` to consume the API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
