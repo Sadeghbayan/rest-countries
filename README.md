@@ -17,6 +17,10 @@ A simple React.js application for fetching Country data.
 - I created a helper class for Api calls and reused it in different component to collect needed data.
 - I used native `fetch()` to consume the API.
 
+## TODO
+
+- Unit testing is not covered yet.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
